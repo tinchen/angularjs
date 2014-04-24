@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>ngClick 與 ngDblclick（一） - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/controller.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/">Home</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngController">ng-controller</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngShow">ng-show</a>
+	</div>
+	<div class="well span6" style="margin-top:20px;" ng-controller="ShowHideCtrl">
+		<label>
+		  顯示嗎？ {{ showed }}
+			<input type="checkbox" ng-model="showed" ng-true-value="YES" ng-false-value="NO">
+		</label>
+		<hr>
+		<h2 ng-show="showed">看到沒？</h2>
+	</div>
+</body>
+</html>

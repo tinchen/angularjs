@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Home - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+  <div class="span7" style="margin-top:20px;" ng-controller="IndexCtrl">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr ng-repeat="example in examples">
+          <td>
+            <a href="{{ example.href }}">{{ $index + 1 }}. {{ example.name }}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
