@@ -16,5 +16,6 @@ var IndexCtrl = function($scope){
     { name: 'Options（二）', href: 'options-2.html' },
     { name: 'Options（三）', href: 'options-3.html' },
     { name: 'ngChange', href: 'change.html' },
+    { name: 'ngHref 與 ngSrc', href: 'href-src.html' },
   ];
 };
