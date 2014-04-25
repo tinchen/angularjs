@@ -14,5 +14,7 @@ var IndexCtrl = function($scope){
     { name: 'Filters（三）', href: 'filters-3.html' },
     { name: 'Options（一）', href: 'options-1.html' },
     { name: 'Options（二）', href: 'options-2.html' },
+    { name: 'Options（三）', href: 'options-3.html' },
+    { name: 'ngChange', href: 'change.html' },
   ];
 };
