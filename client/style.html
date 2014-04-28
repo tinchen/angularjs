@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>ngStyle - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/">Home</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngStyle">ng-style</a>
+	</div>
+    <div class="well span4" style="margin-top:20px;" ng-init="myStyle={}">
+    	<input type="button" class="btn btn-primary" value="設定.." 
+    	  ng-click="myStyle={ color: 'red', fontSize: '16px', 'background-color': 'yellow' }">
+    	<input type="button" class="btn btn-warning" value="清除" 
+    	  ng-click="myStyle={}">
+    	<br><br>
+    	<div ng-style="myStyle">AngularJS</div>
+    	<pre >myStyle = {{ myStyle }}</pre >
+    </div>
+</body>
+</html>

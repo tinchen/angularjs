@@ -78,12 +78,12 @@ var TableFilterCtrl = function($scope, $filter){
 	var expression = 'age';
 	var reverse = false;
 	$scope.filter = function(field) {
-	  if (field) {
-      reverse = (expression != field) ? false : !reverse;
-      expression = field;
-	  }
-    $scope.friends = $filter('orderBy')(friends, expression, reverse);
-    $scope.friends = $filter('limitTo')($scope.friends, $scope.limitTo);
+        if (field) {
+            reverse = (expression != field) ? false : !reverse;
+            expression = field;
+        }
+        $scope.friends = $filter('orderBy')(friends, expression, reverse);
+        $scope.friends = $filter('limitTo')($scope.friends, $scope.limitTo);
 	}
 	
 	$scope.filter();
