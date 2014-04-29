@@ -8,46 +8,57 @@
 	<script src="todos.js"></script>
 </head>
 <body ng-controller="TodoCtrl">
-    <div id="todoapp">
-        <header>
-            <h1>Todos by AngularJS</h1>
-            <input id="new-todo" type="text" placeholder="請輸入待辦事項.."
-             ng-model="title" ng-keypress="add($event);" />
-        </header>
-        
-        <section id="main" ng-show="todoList.length">
-            <input id="toggle-all" type="checkbox" 
-             ng-model="allToggled" ng-change="toggleAll();" />
-            <label for="toggle-all">全部標示已完成</label>
-            <ul id="todo-list">
-                <li ng-repeat="todo in todoList" 
-                    ng-class="todo.cssClass();">
-                    <div class="view" ng-dblclick="todo.toggleEditing();">
-                      <input class="toggle" type="checkbox"
-                       ng-checked="todo.done" ng-click="todo.toggle();" />
-                      <label>{{ todo.title }}</label>
-                      <a class="destroy" ng-click="destroy($index);"></a>
-                    </div>
-                    <input class="edit" type="text" ng-model="todo.title"
-                     ng-blur="todo.toggleEditing();" />
-                </li>
-            </ul>
-        </section>
-        
-        <footer ng-show="todoList.length">
-            <a ng-if="completed() > 0;" id="clear-completed"
-              ng-click="clearCompleted();">
-              刪除 <b>{{ completed() }}</b> 項已完成事項
-            </a>
-            <div ng-if="remaining() > 0;" class="todo-count">
-              剩下 {{ remaining()  }} 項待辦事項
-            </div>
-        </footer>
-    </div>
-        
-    <div id="instructions">
-        <span ng-show="todoList.length">Double-click 可編輯待辦事項的內容 |</span>
-        <a href="http://todomvc.com/architecture-examples/angularjs/">http://todomvc.com/</a>
-    </div>
+  <div id="todoapp">
+    <header>
+      <h1>Todos by AngularJS</h1>
+      <!-- 綁定 newTodoTitle，並定義 keypress 的處理函式傳入 $event 物件 -->
+      <input type="text" placeholder="請輸入待辦事項.."
+        ng-model="newTodoTitle" ng-keypress="add($event);" />
+    </header>
+    
+    <!-- 當 todoList 有資料時才會顯示此區（section） -->
+    <section ng-show="todoList.length">
+      <!-- 綁定 allToggled，並定義 change 的處理函式 -->
+      <input id="toggle-all" type="checkbox" 
+        ng-model="allToggled" ng-change="toggleAll();" />
+      <label for="toggle-all">全部標示已完成</label>
+      
+      <ul id="todo-list">
+        <!-- 依序顯示 todoList 內的待辦事項，CSS Class 依照狀態自動改變 -->
+        <li ng-repeat="todo in todoList" 
+          ng-class="todo.cssClass();">
+          <!-- 定義 dblclick 時直接呼叫 todo 的物件函式 -->
+          <div class="view" ng-dblclick="todo.toggleEditing();">
+            <!-- 定義 checked 自動依照 todo.done 勾選 -->
+            <!-- 定義 click 時直接呼叫 todo 的物件函式 -->
+            <input class="toggle" type="checkbox"
+             ng-checked="todo.done" ng-click="todo.toggle();" />
+            <label>{{ todo.title }}</label>
+            <!-- 定義 click 時的處理函式 -->
+            <a class="destroy" ng-click="todoList.destroy($index);"></a>
+          </div>
+          <!-- 綁定 todo.title，並定義 blur 的處理函式 -->
+          <input class="edit" type="text" ng-model="todo.title"
+           ng-blur="todo.toggleEditing();" />
+        </li>
+      </ul>
+    </section>
+    
+    <footer ng-show="todoList.length">
+      <!-- 當有 completed 事項時才會顯示 -->
+      <a ng-if="completed() > 0;" id="clear-completed" ng-click="clearCompleted();">
+        刪除 <b>{{ completed() }}</b> 項已完成事項
+      </a>
+      <!-- 當有 remaining 事項時才會顯示 -->
+      <div ng-if="remaining() > 0;" class="todo-count">
+        剩下 {{ remaining()  }} 項待辦事項
+      </div>
+    </footer>
+  </div>
+  
+  <div id="instructions">
+    <span ng-show="todoList.length">Double-click 可編輯待辦事項的內容 |</span>
+    <a href="http://todomvc.com/architecture-examples/angularjs/">http://todomvc.com/</a>
+  </div>
 </body>
 </html>
