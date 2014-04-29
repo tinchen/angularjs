@@ -28,14 +28,14 @@
 		<label>搜尋：</label>
     <input type="text" ng-model="q">
     <hr>
-		<p>
-			<div ng-repeat="friend in friends | filter:q">
-			  {{ $index + 1 }}. {{ friend.name }} ({{ friend.age }})
-        <span class="friend-first-{{$first}}" ng-show="$first">[第一筆]</span>
-        <span class="friend-middle-{{$middle}}" ng-show="$middle">[中間的]</span>
-        <span class="friend-last-{{$last}}" ng-show="$last">[最後一筆]</span>
-			</div>
-		</p>
+    <p>
+        <div ng-repeat="friend in friends | filter:q">
+            {{ $index + 1 }}. {{ friend.name }} ({{ friend.age }})
+            <span class="friend-first-{{$first}}" ng-show="$first">[第一筆]</span>
+            <span class="friend-middle-{{$middle}}" ng-show="$middle">[中間的]</span>
+            <span class="friend-last-{{$last}}" ng-show="$last">[最後一筆]</span>
+        </div>
+    </p>
 	</div>
 </body>
 </html>

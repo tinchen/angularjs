@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="Todos">
+<head>
+	<meta charset="UTF-8">
+	<title>Todos Sample - AngularJS</title>
+	<link rel="stylesheet" href="todos.css"/>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="todos.js"></script>
+</head>
+<body ng-controller="TodoCtrl">
+    <div id="todoapp">
+        <header>
+            <h1>Todos by AngularJS</h1>
+            <input id="new-todo" type="text" placeholder="請輸入待辦事項.."
+             ng-model="title" ng-keypress="add($event);" />
+        </header>
+        
+        <section id="main" ng-show="todoList.length">
+            <input id="toggle-all" type="checkbox" 
+             ng-model="allToggled" ng-change="toggleAll();" />
+            <label for="toggle-all">全部標示已完成</label>
+            <ul id="todo-list">
+                <li ng-repeat="todo in todoList" 
+                    ng-class="todo.cssClass();">
+                    <div class="view" ng-dblclick="todo.toggleEditing();">
+                      <input class="toggle" type="checkbox"
+                       ng-checked="todo.done" ng-click="todo.toggle();" />
+                      <label>{{ todo.title }}</label>
+                      <a class="destroy" ng-click="destroy($index);"></a>
+                    </div>
+                    <input class="edit" type="text" ng-model="todo.title"
+                     ng-blur="todo.toggleEditing();" />
+                </li>
+            </ul>
+        </section>
+        
+        <footer ng-show="todoList.length">
+            <a ng-if="completed() > 0;" id="clear-completed"
+              ng-click="clearCompleted();">
+              刪除 <b>{{ completed() }}</b> 項已完成事項
+            </a>
+            <div ng-if="remaining() > 0;" class="todo-count">
+              剩下 {{ remaining()  }} 項待辦事項
+            </div>
+        </footer>
+    </div>
+        
+    <div id="instructions">
+        <span ng-show="todoList.length">Double-click 可編輯待辦事項的內容 |</span>
+        <a href="http://todomvc.com/architecture-examples/angularjs/">http://todomvc.com/</a>
+    </div>
+</body>
+</html>
