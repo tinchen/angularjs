@@ -11,16 +11,16 @@
   <div id="todoapp">
     <header>
       <h1>Todos by AngularJS</h1>
-      <!-- 綁定 newTodoTitle，並定義 keypress 的處理函式傳入 $event 物件 -->
+      <!-- 綁定 todoList.newTodoTitle，定義 keypress 時呼叫 todoList.add($event) -->
       <input type="text" placeholder="請輸入待辦事項.."
-        ng-model="newTodoTitle" ng-keypress="add($event);" />
+        ng-model="todoList.newTodo" ng-keypress="todoList.add($event);" />
     </header>
     
     <!-- 當 todoList 有資料時才會顯示此區（section） -->
     <section ng-show="todoList.length">
-      <!-- 綁定 allToggled，並定義 change 的處理函式 -->
+      <!-- 綁定 todoList.allToggled，定義 change 時呼叫 todoList.toggle() -->
       <input id="toggle-all" type="checkbox" 
-        ng-model="allToggled" ng-change="toggleAll();" />
+        ng-model="todoList.allToggled" ng-change="todoList.toggle();" />
       <label for="toggle-all">全部標示已完成</label>
       
       <ul id="todo-list">
@@ -46,12 +46,13 @@
     
     <footer ng-show="todoList.length">
       <!-- 當有 completed 事項時才會顯示 -->
-      <a ng-if="completed() > 0;" id="clear-completed" ng-click="clearCompleted();">
-        刪除 <b>{{ completed() }}</b> 項已完成事項
+      <a ng-if="todoList.completed() > 0;" id="clear-completed" 
+        ng-click="todoList.destroy();">
+        刪除 <b>{{ todoList.completed() }}</b> 項已完成事項
       </a>
       <!-- 當有 remaining 事項時才會顯示 -->
-      <div ng-if="remaining() > 0;" class="todo-count">
-        剩下 {{ remaining()  }} 項待辦事項
+      <div ng-if="todoList.remaining() > 0;" class="todo-count">
+        剩下 {{ todoList.remaining()  }} 項待辦事項
       </div>
     </footer>
   </div>
