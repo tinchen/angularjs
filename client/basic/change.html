@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>ngChange - AngularJS</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script src="js/options.js"></script>
+</head>
+<body>
+  <div class="alert alert-info">
+    <a href="/basic">Home</a> |
+    <a href="https://docs.angularjs.org/api/ng/directive/select">select</a> |
+    <a href="https://docs.angularjs.org/api/ng/directive/ngChange">ngChange</a> |
+    <a href="http://goo.gl/xwGbmW">搞懂 ngOptions 用法</a>
+  </div>
+  <div class="span4" style="margin-top:20px;" ng-controller="SelectCtrl_3">
+    <div class="alert alert-info">
+      <select ng-model="selected" ng-change="changed();"
+        ng-options="member.name as member.name for (title, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+      </select>
+
+      <br/>
+      <p ng-show="result">選擇的是：{{ result }}</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Controller - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <style>
+    input[type="text"].myFocus {
+        background-color: yellow;
+    }
+    input[type="text"].myBlur {
+        background-color: white;
+    }
+  </style>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngFocus">ng-focus</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngBlur">ng-blue</a>
+	</div>
+  <div class="well span4" style="margin-top:20px;" ng-init="focused=false;">
+  	<input type="text" ng-class="{ myFocus: focused, myBlur: !focused }" 
+  	 ng-focus="focused=true;" ng-blur="focused=false;">
+  </div>
+</body>
+</html>

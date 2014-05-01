@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>ngClick 與 ngDblclick（一） - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/controller.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/tutorial/step_10">Event Handlers</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngClick">ng-click</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngRepeat">ng-repeat</a>
+	</div>
+  <div class="well span6" style="margin-top:20px;" ng-controller="FriendsCtrl">
+    <div style="margin-bottom:20px;">
+    	<input type="text" id="name" placeholder="姓名.." ng-model="pName">
+    	<input type="number" id="age" placeholder="年齡.." ng-model="pAge">
+    	<br>
+    	<button class="btn" ng-click="add()">加入..</button>
+    </div>
+  	<h3>共有 {{ friends.length }} 位朋友</h3>
+  	<div class="alert alert-info" ng-repeat="friend in friends" >
+  	  <button type="button" class="close" ng-click="remove($index);">&times;</button>
+  		{{ friend.name }} <span class="badge badge-important">{{ friend.age }} 歲</span>
+  	</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>設定 CSS Class（二）：ng-class-even 與 ng-class-odd - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/controller.js"></script>
+    <style>
+    	.even {
+    		color: red;
+    	}
+    	.odd {
+    		color: blue;
+    	}
+    </style>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngClassEven">ng-class-even</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngClassOdd">ng-class-odd</a>
+	</div>
+	
+	<div class="well span4" style="margin-top:20px;" ng-controller="NgClassEvenOddCtrl">
+    <ul>
+    	<li ng-repeat="person in friends" ng-class-even="'even'" ng-class-odd="'odd'">
+    	    {{ person.name }} : {{ person.reward }}
+    	</li>
+    </ul>
+	</div>
+</body>
+</html>

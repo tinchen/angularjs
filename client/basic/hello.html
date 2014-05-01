@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Controller - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/guide/expression">Expressions</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngModel">ng-model</a>
+	</div>
+	<div class="well span6">
+		<input type="text" ng-model="name" placeholder="在此輸入名字..">
+		<hr>
+		<h1>哈囉~ {{ name || "AngularJS" }}</h1>
+	</div>
+</body>
+</html>

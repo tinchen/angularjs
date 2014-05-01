@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>ngRepeat (一) - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/controller.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/filter">filter</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngRepeat">ng-repeat</a>
+	</div>
+	<div class="well span6" style="margin-top:20px;" ng-controller="FriendsCtrl">
+    <label>搜尋：</label>
+    <input type="text" ng-model="q">
+    <hr>
+    <p>
+      <div ng-repeat="friend in friends | filter:q">
+        {{ $index + 1 }}. {{ friend.name }} ({{ friend.age }})
+      </div>
+    </p>
+  </div>
+</body>
+</html>

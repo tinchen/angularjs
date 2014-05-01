@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Controller - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/controller.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/guide/controller">Controllers</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngController">ng-controller</a>
+	</div>
+	<div class="well span6" ng-controller="PersonCtrl">
+		<label>姓名：</label>
+		<input type="text" ng-model="name" placeholder="Enter a name here">
+		<br>
+		<label>年齡：</label>
+		<input type="text" ng-model="age" placeholder="Enter a number here">
+		<hr>
+    <h2>{{ name }} 現在 {{ age }} 歲大</h2>
+	</div>
+</body>
+</html>

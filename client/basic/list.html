@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>以字元區隔的輸入方式：ng-list - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngList">ng-list</a>
+	</div>
+    <div class="well span8" style="margin-top:20px;">
+    	<input type="text" ng-model="tags1" ng-list>（用逗號 comma 來區隔）<br/>
+    	<p>tags = {{ tags1 }}</p>
+    	<input type="text" ng-model="tags2" ng-list="|">（用 | 來區隔）<br/>
+    	<p>tags = {{ tags2 }}</p>
+        <input type="text" ng-model="tags3" ng-list=/\s/>（用 Regular Expression 來區隔）<br/>
+    	<p>tags = {{ tags3 }}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Filters（一）- AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="//code.angularjs.org/1.2.15/i18n/angular-locale_zh-tw.js"></script>
+	<script src="js/filters.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/filter">filter</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/number">number</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/currency">currency</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/date">date</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/json">json</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/lowercase">lowercase</a> |
+	  <a href="https://docs.angularjs.org/api/ng/filter/uppercase">uppercase</a>
+	</div>
+  <div class="span6" ng-controller="FilterCtrl">
+    <div class="alert alert-info">
+    	<input type="number" ng-model="num">
+    	<pre >{{ num | number:5 }}</pre >
+    	<pre >{{ num | currency }} 因 angular-locale_zh-tw.js 自動顯示 NT$</pre >
+    </div>   
+    <div class="alert alert-info">
+    	<input type="date" ng-model="birth">
+    	<pre >{{ birth | date:'yyyy 年 MM 月 dd 日' }}</pre >
+    </div>
+    <div class="alert alert-info">
+    	<pre >{{ obj | json }}</pre >
+    </div>
+    <div class="alert alert-info">
+      <input type="text" ng-model="text">
+      <pre >{{ text | lowercase }}</pre >
+      <pre >{{ text | uppercase }}</pre >
+    </div>
+  </div>
+</body>
+</html>
