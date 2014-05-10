@@ -30,6 +30,7 @@ var IndexCtrl = function($scope){
     { name: '設定 CSS Style：ng-style', href: 'style.html' },
     { name: '以字元區隔的輸入方式：ng-list', href: 'list.html' },
     { name: '自訂過濾器', href: 'custom-filter.html' },
+    { name: '自訂指令', href: 'custom-directive.html' },
     { name: '自訂表達式（模板）符號', href: 'custom-interpolation.html' },
   ];
 };

@@ -1,5 +1,5 @@
 <div class="phone-images">
-  <img ng-src="{{img}}"
+  <img ng-src="{{img}}" draggable
        class="phone"
        ng-repeat="img in phone.images"
        ng-class="{active: mainImageUrl==img}">
@@ -53,6 +53,7 @@
       <dt>Bluetooth</dt>
       <dd>{{phone.connectivity.bluetooth}}</dd>
       <dt>Infrared</dt>
+      <!-- 使用自行定義的 checkmark 過濾器，用來顯示 √ 或 × -->
       <dd>{{phone.connectivity.infrared | checkmark}}</dd>
       <dt>GPS</dt>
       <dd>{{phone.connectivity.gps | checkmark}}</dd>

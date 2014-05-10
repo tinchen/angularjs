@@ -15,12 +15,18 @@
 	</div>
 	<div class="well span6" ng-controller="PersonCtrl">
 		<label>姓名：</label>
-		<input type="text" ng-model="name" placeholder="Enter a name here">
+		<input type="text" ng-model="person.name" placeholder="輸入姓名..">
 		<br>
 		<label>年齡：</label>
-		<input type="text" ng-model="age" placeholder="Enter a number here">
-		<hr>
-    <h2>{{ name }} 現在 {{ age }} 歲大</h2>
+		<input type="text" ng-model="person.age" placeholder="輸入年齡..">
+	</div>
+	<!-- 同頁面不同區塊共用同一個 PersonCtrl controller -->
+	<div class="well span6" ng-controller="PersonCtrl">
+    <h2>{{ person.name }} 現在 <span ng-bind="person.age">？</span> 歲大</h2>
+    <h4 ng-bind="person.msg"></h4>
+	</div>
+	<div class="well span6" ng-controller="AnonymousCtrl">
+    <h2>{{ anonymous }}</h2>
 	</div>
 </body>
 </html>

@@ -1,3 +1,7 @@
+'use strict';
+
+/* global angular jQuery */
+
 var phonecatAnimations = angular.module('phonecatAnimations', ['ngAnimate']);
 
 phonecatAnimations.animation('.phone', function() {
@@ -6,6 +10,7 @@ phonecatAnimations.animation('.phone', function() {
     if(className != 'active') {
       return;
     }
+    
     element.css({
       position: 'absolute',
       top: 500,
@@ -22,7 +27,7 @@ phonecatAnimations.animation('.phone', function() {
         element.stop();
       }
     };
-  }
+  };
 
   var animateDown = function(element, className, done) {
     if(className != 'active') {
@@ -43,7 +48,7 @@ phonecatAnimations.animation('.phone', function() {
         element.stop();
       }
     };
-  }
+  };
 
   return {
     addClass: animateUp,

@@ -1,12 +1,16 @@
 'use strict';
 
+/* global angular */
+
 /* Services */
 
 var phonecatServices = angular.module('phonecatServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
+// 定義一個名稱為 Phones 的 RESTful Service
+phonecatServices.factory('Phones', ['$resource',
   function($resource){
     return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+      // $http.get('phones/phones.json')
+      query: { method:'GET', params:{ phoneId:'phones' }, isArray: true }
     });
   }]);

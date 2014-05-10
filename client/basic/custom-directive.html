@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="MyDirectives">
+<head>
+	<meta charset="UTF-8">
+	<title>自訂指令 - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/directives.js"></script>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/basic">Home</a> |
+	  <a href="http://goo.gl/6roGVw">HTML中调用指令</a>
+	</div>
+  <div class="well span6" ng-controller="DirectiveCtrl">
+    日期格式：<input ng-model="format"> <hr/>
+    現在的時間：<span my-current-time="format"></span>
+  </div>
+</body>
+</html>

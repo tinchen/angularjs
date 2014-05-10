@@ -1,7 +1,29 @@
-var PersonCtrl = function($scope){
-	$scope.name = 'AngularJS';
-	$scope.age = 2;
+/*global angular */
+
+var person = {
+	name: '',
+	age: 0,
+	msg: '載入中..'
 };
+
+var PersonCtrl = function($scope){
+	$scope.person = person;
+
+  setTimeout(function() {
+    // 使用 $scope.$apply(..) 讓 model 的變更能讓 angular 知曉
+    $scope.$apply( function() {
+      person.name = 'AngularJS';
+      person.age = 10;
+      person.msg = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    });
+  }, 2500);
+};
+
+(function(window, angular) {
+  window.AnonymousCtrl = function($scope){
+    $scope.anonymous = '匿名函式中成功建立 Controller';
+  };
+})(window, angular);
 
 var ShowHideCtrl = function($scope){
 	$scope.showed = "YES";
@@ -27,7 +49,6 @@ var FriendsCtrl = function($scope){
     };
 };
 
-var angular = angular || {};
 var calModule = angular.module('CalModule', []);
 calModule.controller('CalCtrl', function($scope){
 	$scope.num1 = 1;

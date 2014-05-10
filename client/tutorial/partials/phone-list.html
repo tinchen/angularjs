@@ -1,28 +1,26 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
-      <!--Sidebar content-->
-
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select>
-
+      <p>
+        搜尋：
+        <input ng-model="query">&nbsp;&nbsp;
+        排序：
+        <select ng-model="orderProp">
+          <option value="name">依照名稱</option>
+          <option value="age">依照新舊</option>
+        </select>
+      </p>
     </div>
     <div class="col-md-10">
-      <!--Body content-->
-
       <ul class="phones">
         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
             class="thumbnail phone-listing">
+          <!-- 使用 ng-src 指令防止浏览器产生一个指向非法地址的请求 -->
           <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
           <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
           <p>{{phone.snippet}}</p>
         </li>
       </ul>
-
     </div>
   </div>
 </div>

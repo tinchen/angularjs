@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="cust-validate-fmt">
+<head>
+	<meta charset="UTF-8">
+	<title>自訂資料驗證與格式化 - AngularJS</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/form.js"></script>
+  <style type="text/css">
+  .ng-invalid.ng-dirty {
+    background-color: #FA787E;
+  }
+  .ng-valid.ng-dirty {
+    background-color: #78FA89;
+  }
+  </style>
+</head>
+<body>
+	<div class="alert alert-info">
+	  <a href="/form">Home</a> |
+	  <a href="http://goo.gl/thn5U2">表單</a> |
+	  <a href="https://docs.angularjs.org/api/ng/directive/ngForm">ng-form</a>
+	</div>
+	<div class="well span8">
+    <form novalidate>
+      <div>
+        Size (integer 0 - 10):
+        <input type="number" ng-model="size" name="size"
+               min="0" max="10" integer />{{size}}<br />
+        <span ng-show="form.size.$error.integer">This is not valid integer!</span>
+        <span ng-show="form.size.$error.min || form.size.$error.max">
+          The value must be in range 0 to 10!</span>
+      </div>
+
+      <div>
+        Length (float):
+        <input type="text" ng-model="length" name="length" smart-float />
+        {{length}}<br />
+        <span ng-show="form.length.$error.float">
+          This is not a valid float number!</span>
+      </div>
+    </form>
+	</div>
+</body>
+</html>
